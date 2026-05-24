@@ -141,11 +141,11 @@ export const siteData: SiteData = {
     
     // Contact Info & Socials (shared across languages or static)
     contactInfo: {
-        phone: "+90 (242) 123 45 67",
-        phoneRaw: "+902421234567",
+        phone: "+90 (532) 668 89 25",
+        phoneRaw: "+905326688925",
         email: "info@zcbinsaat.com",
-        address: "Yeşilbahçe Mah. Metin Kasapoğlu Cad. No: 42 D: 5, Muratpaşa / Antalya",
-        googleMapsIframe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12763.504245648834!2d30.7188737678516!3d36.87823528243171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c390623fb8b03b%3A0xc3f83733077e6f8a!2sYe%C5%9Filbah%C3%A7e%2C%20Muratpa%C5%9Fa%2FAntalya!5e0!3m2!1str!2str!4v1716200000000!5m2!1str!2str",
+        address: "Bayramoğlu, Fatih Sultan Mehmet Cd. No:142-1, 41700 Darıca/Kocaeli",
+        googleMapsIframe: "https://maps.google.com/maps?q=ZCB%20%C4%B0n%C5%9Faat%20M%C3%BChendislik%20Mimarl%C4%B1k&t=&z=15&ie=UTF8&iwloc=&output=embed",
         socials: {
             instagram: "#",
             facebook: "#",
@@ -177,7 +177,7 @@ export const siteData: SiteData = {
             aboutTag: "ZCB İNŞAAT & MÜHENDİSLİK",
             aboutTitle: "Geleceğin Mimarisini Mühendislik Gücüyle İnşa Ediyoruz",
             aboutLead: "ZCB İnşaat & Mühendislik olarak, modern şehircilik anlayışını estetik detaylar ve sarsılmaz mühendislik prensipleriyle birleştiriyoruz.",
-            aboutText: "Antalya'nın çehresini değiştiren projelerimizde, sadece birer bina değil, güvenli, konforlu ve doğayla barışık yeni yaşam alanları inşa ediyoruz. Her detayında birinci sınıf malzemelerin ve kusursuz işçiliğin izini göreceğiniz konutlarımızla, yaşam standardınızı en üst seviyeye çıkarmayı hedefliyoruz.",
+            aboutText: "Bölgemizin çehresini değiştiren projelerimizde, sadece birer bina değil, güvenli, konforlu ve doğayla barışık yeni yaşam alanları inşa ediyoruz. Her detayında birinci sınıf malzemelerin ve kusursuz işçiliğin izini göreceğiniz konutlarımızla, yaşam standardınızı en üst seviyeye çıkarmayı hedefliyoruz.",
             aboutStatExperience: "Yıllık Deneyim",
             aboutStatFamilies: "Mutlu Aile",
             aboutStatDelivery: "Zamanında Teslim",
@@ -224,7 +224,7 @@ export const siteData: SiteData = {
             contactLabelAddressTitle: "Adres",
 
             // Footer
-            footerDesc: "ZCB İnşaat & Mühendislik, Antalya genelinde modern mimari anlayışını estetik, güvenlik ve işlevsellik ile birleştirerek yüksek kalitede konut projeleri üretmektedir.",
+            footerDesc: "ZCB İnşaat & Mühendislik, Kocaeli ve çevresinde modern mimari anlayışını estetik, güvenlik ve işlevsellik ile birleştirerek yüksek kalitede konut projeleri üretmektedir.",
             footerTitleCorp: "Kurumsal",
             footerTitleProj: "Projelerimiz",
             footerTitleLegal: "Yasal",
@@ -267,7 +267,7 @@ export const siteData: SiteData = {
             aboutTag: "ZCB CONSTRUCTION & ENGINEERING",
             aboutTitle: "We Build Future Architecture with Engineering Strength",
             aboutLead: "As ZCB Construction & Engineering, we combine modern urbanism with aesthetic details and unshakable engineering principles.",
-            aboutText: "In our projects that change the face of Antalya, we build not just buildings, but safe, comfortable, and nature-friendly new living spaces. We aim to raise your standard of living to the highest level with our residences, where you will see traces of premium materials and flawless craftsmanship in every detail.",
+            aboutText: "In our projects that change the face of our region, we build not just buildings, but safe, comfortable, and nature-friendly new living spaces. We aim to raise your standard of living to the highest level with our residences, where you will see traces of premium materials and flawless craftsmanship in every detail.",
             aboutStatExperience: "Years of Experience",
             aboutStatFamilies: "Happy Families",
             aboutStatDelivery: "On-Time Delivery",
@@ -314,7 +314,7 @@ export const siteData: SiteData = {
             contactLabelAddressTitle: "Address",
 
             // Footer
-            footerDesc: "ZCB Construction & Engineering produces high-quality residential projects by combining modern architecture with aesthetics, safety, and functionality across Antalya.",
+            footerDesc: "ZCB Construction & Engineering produces high-quality residential projects by combining modern architecture with aesthetics, safety, and functionality across Kocaeli and surrounding areas.",
             footerTitleCorp: "Corporate",
             footerTitleProj: "Our Projects",
             footerTitleLegal: "Legal",
@@ -357,7 +357,7 @@ export const siteData: SiteData = {
             aboutTag: "ZCB СТРОИТЕЛЬСТВО & ИНЖИНИРИНГ",
             aboutTitle: "Мы строим архитектуру будущего с инженерной точностью",
             aboutLead: "ZCB Строительство & Инжиниринг объединяет современную урбанистику с эстетическими деталями и надежными инженерными принципами.",
-            aboutText: "В наших проектах, меняющих облик Анталии, мы строим не просто здания, а безопасные, комфортные и экологичные жилые пространства. Мы стремимся поднять ваш уровень жизни на новую высоту с нашими резиденциями, где в каждой детали видны следы материалов премиум-класса и безупречного мастерства.",
+            aboutText: "В наших проектах, меняющих облик нашего региона, мы строим не просто здания, а безопасные, комфортные и экологичные жилые пространства. Мы стремимся поднять ваш уровень жизни на новую высоту с нашими резиденциями, где в каждой детали видны следы материалов премиум-класса и безупречного мастерства.",
             aboutStatExperience: "Лет Опыта",
             aboutStatFamilies: "Счастливых Семей",
             aboutStatDelivery: "Сдача в Срок",
@@ -404,7 +404,7 @@ export const siteData: SiteData = {
             contactLabelAddressTitle: "Адрес",
 
             // Footer
-            footerDesc: "ZCB Строительство & Инжиниринг создает высококачественные жилые проекты по всей Анталии, сочетая современную архитектуру с эстетикой, безопасностью и функциональностью.",
+            footerDesc: "ZCB Строительство & Инжиниринг создает высококачественные жилые проекты по всему региону Коджаэли, сочетая современную архитектуру с эстетикой, безопасностью и функциональностью.",
             footerTitleCorp: "Компания",
             footerTitleProj: "Наши Проекты",
             footerTitleLegal: "Юридическая инф.",
@@ -451,7 +451,7 @@ export const siteData: SiteData = {
     heroTranslations: {
         TR: {
             hero1Title: "ZCB ile Modern Yaşamın Zirvesi",
-            hero1Desc: "Antalya'nın en seçkin noktasında, benzersiz mimarisi ve üstün mühendislik kalitesiyle yükselen yeni yaşam merkeziniz.",
+            hero1Desc: "Kocaeli Darıca'nın en seçkin noktasında, benzersiz mimarisi ve üstün mühendislik kalitesiyle yükselen yeni yaşam merkeziniz.",
             hero2Tag: "ZARİF & PRESTİJLİ",
             hero2Title: "İç Mekanda Kusursuz Konfor",
             hero2Desc: "Birinci sınıf malzemeler ve estetik tasarımın mükemmel uyumuyla hayat bulan, konforunuz için tasarlanmış prestijli detaylar.",
@@ -459,7 +459,7 @@ export const siteData: SiteData = {
         },
         EN: {
             hero1Title: "The Peak of Modern Living with ZCB",
-            hero1Desc: "Your new living center rising in Antalya's most exclusive location with unique architecture and superior engineering quality.",
+            hero1Desc: "Your new living center rising in Darıca's most exclusive location with unique architecture and superior engineering quality.",
             hero2Tag: "ELEGANT & PRESTIGIOUS",
             hero2Title: "Flawless Comfort Indoors",
             hero2Desc: "Prestigious details designed for your comfort, brought to life through the perfect harmony of premium materials and aesthetic design.",
@@ -467,7 +467,7 @@ export const siteData: SiteData = {
         },
         RU: {
             hero1Title: "Пик Современной Жизни с ZCB",
-            hero1Desc: "Ваш новый центр жизни, возвышающийся в самом эксклюзивном районе Анталии, с уникальной архитектурой и высоким инженерным качеством.",
+            hero1Desc: "Ваш новый центр жизни, возвышающийся в самом эксклюзивном районе Дариджи, с уникальной архитектурой и высоким инженерным качеством.",
             hero2Tag: "ИЗЫСКАННЫЙ И ПРЕСТИЖНЫЙ",
             hero2Title: "Безупречный Комфорт в Интерьере",
             hero2Desc: "Престижные детали, созданные для вашего комфорта, воплощенные в жизнь благодаря гармонии материалов премиум-класса и эстетичного дизайна.",

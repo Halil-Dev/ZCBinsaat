@@ -262,6 +262,17 @@ button {
     color: var(--color-accent);
 }
 
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-smooth);
+}
+
+.site-header.scrolled .logo-img {
+    height: 40px;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -1588,6 +1599,12 @@ button {
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--color-white);
+}
+
+.footer-logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
 }
 
 .footer-links-col h4 {

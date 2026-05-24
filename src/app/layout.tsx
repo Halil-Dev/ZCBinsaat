@@ -27,9 +27,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ZCB İnşaat & Mühendislik | Antalya Lüks Konut Projeleri",
-  description: "Antalya Muratpaşa'da estetik detaylar ve sarsılmaz mühendislik prensipleriyle yükselen modern, lüks konut projeleri ve satılık daireler.",
-  keywords: ["Antalya satılık daire", "Lüks konut projesi", "Antalya inşaat firmaları", "ZCB İnşaat", "Muratpaşa satılık daire", "ZCB Mühendislik"],
+  title: "ZCB İnşaat & Mühendislik | Kocaeli Darıca Lüks Konut Projeleri",
+  description: "Kocaeli Darıca'da estetik detaylar ve sarsılmaz mühendislik prensipleriyle yükselen modern, lüks konut projeleri ve satılık daireler.",
+  keywords: ["Kocaeli satılık daire", "Darıca satılık daire", "Lüks konut projesi", "Kocaeli inşaat firmaları", "ZCB İnşaat", "Darıca satılık daire", "ZCB Mühendislik"],
   metadataBase: new URL('https://www.zcbinsaat.com'),
   
   openGraph: {

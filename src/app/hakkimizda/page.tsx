@@ -22,7 +22,7 @@ export default function HakkimizdaPage() {
       subtitle: "ZCB İnşaat & Mühendislik",
       intro: "Modern şehirciliğin estetik ve güvenlikle buluştuğu nokta.",
       p1: "ZCB İnşaat & Mühendislik olarak, kurulduğumuz günden bu yana modern şehircilik anlayışını estetik detaylar ve sarsılmaz mühendislik prensipleriyle birleştiriyoruz.",
-      p2: "Antalya'nın en prestijli bölgelerinde hayata geçirdiğimiz lüks konut projelerinde sadece binalar değil, yüksek dayanıklılık standartlarına uygun, deprem yönetmelikleriyle tam uyumlu ve estetik açıdan kusursuz yeni yaşam alanları inşa ediyoruz. Kaya zemin analizi ve ileri mühendislik teknikleriyle sarsılmaz temeller atıyoruz.",
+      p2: "Kocaeli Darıca'nın en prestijli bölgelerinde hayata geçirdiğimiz lüks konut projelerinde sadece binalar değil, yüksek dayanıklılık standartlarına uygun, deprem yönetmelikleriyle tam uyumlu ve estetik açıdan kusursuz yeni yaşam alanları inşa ediyoruz. Kaya zemin analizi ve ileri mühendislik teknikleriyle sarsılmaz temeller atıyoruz.",
       p3: "Geleceğin mimarisini bugünden şekillendirme vizyonumuzla; güven, konfor ve lüksü bir araya getirerek müşterilerimize ayrıcalıklı bir yaşam sunmaya devam ediyoruz."
     },
     EN: {
@@ -31,7 +31,7 @@ export default function HakkimizdaPage() {
       subtitle: "ZCB Construction & Engineering",
       intro: "Where modern urbanism meets aesthetics and safety.",
       p1: "As ZCB Construction & Engineering, since the day we were founded, we combine modern urbanism with aesthetic details and unshakable engineering principles.",
-      p2: "In the luxury residential projects we implement in Antalya's most prestigious regions, we do not only build buildings, but also construct new living spaces that comply with high durability standards, are fully compatible with earthquake regulations, and are aesthetically flawless. We lay unshakable foundations with rock soil analysis and advanced engineering techniques.",
+      p2: "In the luxury residential projects we implement in Kocaeli Darıca's most prestigious regions, we do not only build buildings, but also construct new living spaces that comply with high durability standards, are fully compatible with earthquake regulations, and are aesthetically flawless. We lay unshakable foundations with rock soil analysis and advanced engineering techniques.",
       p3: "With our vision of shaping the architecture of the future today; we continue to offer a privileged life to our customers by combining trust, comfort, and luxury."
     },
     RU: {
@@ -40,7 +40,7 @@ export default function HakkimizdaPage() {
       subtitle: "ZCB Строительство & Инжиниринг",
       intro: "Где современный урбанизм встречается с эстетикой и безопасностью.",
       p1: "Компания ZCB Строительство & Инжиниринг с момента своего основания сочетает в себе концепцию современного градостроительства с эстетическими деталями и незыблемыми инженерными принципами.",
-      p2: "В проектах элитного жилья, которые мы реализуем в самых престижных районах Анталии, мы строим не просто здания, а создаем новые жилые пространства, соответствующие высоким стандартам долговечности, полностью совместимые с правилами сейсмостойкости и эстетически безупречные. Мы закладываем прочный фундамент с помощью анализа скального грунта и передовых инженерных технологий.",
+      p2: "В проектах элитного жилья, которые мы реализуем в самых престижных районах Коджаэли Дариджи, мы строим не просто здания, а создаем новые жилые пространства, соответствующие высоким стандартам долговечности, полностью совместимые с правилами сейсмостойкости и эстетически безупречные. Мы закладываем прочный фундамент с помощью анализа скального грунта и передовых инженерных технологий.",
       p3: "С нашим видением формирования архитектуры будущего уже сегодня; мы продолжаем предлагать нашим клиентам привилегированную жизнь, сочетая доверие, комфорт и роскошь."
     }
   };

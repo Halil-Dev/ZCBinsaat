@@ -82,8 +82,8 @@ export default function Navbar({ settings }: NavbarProps) {
     <>
       <header className={`site-header ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <div className="header-container">
-          <Link href="/" className="logo" onClick={closeMenu}>
-            ZCB <span className="logo-accent">{t('companyLogoText')}</span>
+          <Link href="/" className="logo-link" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center' }}>
+            <img src="/assets/logo.png" alt="ZCB İnşaat & Mühendislik" className="logo-img" />
           </Link>
 
           <div className="nav-actions">
@@ -161,9 +161,9 @@ export default function Navbar({ settings }: NavbarProps) {
           </nav>
 
           <div className="menu-contact-info">
-            <h3 className="logo">
-              ZCB <span className="logo-accent">{t('companyLogoText')}</span>
-            </h3>
+            <div className="menu-logo-wrapper" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center' }}>
+              <img src="/assets/logo.png" alt="ZCB İnşaat & Mühendislik" className="logo-img" style={{ height: '56px' }} />
+            </div>
             <p style={{ marginTop: '2rem' }}>
               <svg style={{ display: 'inline', marginRight: '8px' }} width="16" height="16" fill="var(--color-accent)" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.654 1.328a.678.678 0 0 0-.01-.063L3.5 1.7a2.5 2.5 0 0 0-4.9-.1v11.6a2.5 2.5 0 0 0 4.9.1l.144-.435a.678.678 0 0 0-.01-.063zM1.8 0H15a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1.8a1.8 1.8 0 0 1 0-3.6h.4a.8.8 0 0 0 0-1.6h-.4a1.8 1.8 0 0 1 0-3.6h.4a.8.8 0 0 0 0-1.6h-.4a1.8 1.8 0 0 1 0-3.6z"/>
