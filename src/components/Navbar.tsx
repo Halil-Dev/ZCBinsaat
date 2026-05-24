@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, SupportedLanguages } from '../data';
 
@@ -69,6 +70,9 @@ export default function Navbar({ settings }: NavbarProps) {
     setMenuOpen(false);
     document.body.classList.remove('menu-open');
   };
+
+  const pathname = usePathname();
+  if (pathname?.startsWith('/zcb-admin-panel')) return null;
 
   const phone = settings?.phone || siteData.contactInfo.phone;
   const email = settings?.email || siteData.contactInfo.email;
