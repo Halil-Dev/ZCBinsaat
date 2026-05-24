@@ -5,7 +5,13 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, SupportedLanguages } from '../data';
 
-export default function Footer() {
+interface FooterProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  settings?: any;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function Footer({ settings }: FooterProps) {
   const { setLanguage, t } = useLanguage();
 
   const handleLangChange = (lang: SupportedLanguages, e: React.MouseEvent) => {
