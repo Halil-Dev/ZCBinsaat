@@ -27,8 +27,8 @@ export default function Footer({ settings }: FooterProps) {
         {/* Upper footer grid */}
         <div className="footer-top">
           <div className="footer-brand-col">
-            <Link href="/" className="footer-logo-link" style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
-              <img src="/assets/logo.png" alt="ZCB İnşaat & Mühendislik" className="footer-logo-img" />
+            <Link href="/" className="footer-logo">
+              ZCB <span className="logo-accent">{t('companyLogoText')}</span>
             </Link>
             <p>{t('footerDesc')}</p>
           </div>
