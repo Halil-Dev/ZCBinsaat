@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, SupportedLanguages } from '../data';
 
@@ -60,9 +61,9 @@ export default function Navbar() {
     <>
       <header className={`site-header ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <div className="header-container">
-          <a href="/" className="logo" onClick={closeMenu}>
+          <Link href="/" className="logo" onClick={closeMenu}>
             ZCB <span className="logo-accent">{t('companyLogoText')}</span>
-          </a>
+          </Link>
 
           <div className="nav-actions">
             {/* Language Selector */}
@@ -111,29 +112,29 @@ export default function Navbar() {
           <nav className="overlay-nav">
             <ul>
               <li>
-                <a href="/" className="menu-link" onClick={closeMenu}>
+                <Link href="/" className="menu-link" onClick={closeMenu}>
                   {t('menuHome')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/hakkimizda" className="menu-link" onClick={closeMenu}>
+                <Link href="/hakkimizda" className="menu-link" onClick={closeMenu}>
                   {t('menuAbout')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#catalog" className="menu-link" onClick={closeMenu}>
+                <Link href="/#catalog" className="menu-link" onClick={closeMenu}>
                   {t('menuCatalog')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#gallery" className="menu-link" onClick={closeMenu}>
+                <Link href="/#gallery" className="menu-link" onClick={closeMenu}>
                   {t('menuGallery')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#contact" className="menu-link" onClick={closeMenu}>
+                <Link href="/#contact" className="menu-link" onClick={closeMenu}>
                   {t('menuContact')}
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

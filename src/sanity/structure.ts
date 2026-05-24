@@ -1,4 +1,6 @@
-export const structure = (S: any) =>
+import type { StructureResolver } from 'sanity/structure'
+
+export const structure: StructureResolver = (S) =>
   S.list()
     .title('ZCB İçerik Yönetimi')
     .items([
@@ -14,6 +16,6 @@ export const structure = (S: any) =>
         ),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (listItem: any) => !['settings'].includes(listItem.getId()!)
+        (listItem) => !['settings'].includes(listItem.getId()!)
       ),
     ])

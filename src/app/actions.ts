@@ -35,8 +35,8 @@ export async function submitContactForm(data: ContactFormData) {
     }
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error submitting contact form:', error);
-    return { success: false, error: error.message || 'Failed to submit form.' };
+    return { success: false, error: error instanceof Error ? error.message : 'Failed to submit form.' };
   }
 }

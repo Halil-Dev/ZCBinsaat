@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { siteData } from '../data';
+import { siteData, LanguageDictionary } from '../data';
 
 type Category = 'all' | 'exterior' | 'interior' | 'social';
 
@@ -14,6 +14,20 @@ export default function Gallery() {
   // Filter gallery items
   const filteredItems = siteData.galleryItems.map((item, idx) => ({ ...item, originalIndex: idx }))
     .filter(item => filter === 'all' || item.category === filter);
+
+  const handlePrev = useCallback(() => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((prev) => 
+      prev === 0 ? siteData.galleryItems.length - 1 : prev! - 1
+    );
+  }, [lightboxIndex]);
+
+  const handleNext = useCallback(() => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((prev) => 
+      (prev! + 1) % siteData.galleryItems.length
+    );
+  }, [lightboxIndex]);
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -31,21 +45,7 @@ export default function Gallery() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex]);
-
-  const handlePrev = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex((prev) => 
-      prev === 0 ? siteData.galleryItems.length - 1 : prev! - 1
-    );
-  };
-
-  const handleNext = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex((prev) => 
-      (prev! + 1) % siteData.galleryItems.length
-    );
-  };
+  }, [lightboxIndex, handleNext, handlePrev]);
 
   const activeLightboxItem = lightboxIndex !== null ? siteData.galleryItems[lightboxIndex] : null;
 
@@ -76,7 +76,7 @@ export default function Gallery() {
                 transition: 'all 0.3s ease'
               }}
             >
-              {t(cat as any)}
+              {t(cat as keyof LanguageDictionary)}
             </button>
           ))}
         </div>

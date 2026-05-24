@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, SupportedLanguages } from '../data';
 
@@ -20,35 +21,35 @@ export default function Footer() {
         {/* Upper footer grid */}
         <div className="footer-top">
           <div className="footer-brand-col">
-            <a href="/" className="footer-logo">
+            <Link href="/" className="footer-logo">
               ZCB <span className="logo-accent">{t('companyLogoText')}</span>
-            </a>
+            </Link>
             <p>{t('footerDesc')}</p>
           </div>
 
           <div className="footer-links-col">
             <h4>{t('footerTitleCorp')}</h4>
             <ul>
-              <li><a href="/hakkimizda">{t('menuAbout')}</a></li>
-              <li><a href="/vizyon-misyon">{t('footerLinkMission')}</a></li>
+              <li><Link href="/hakkimizda">{t('menuAbout')}</Link></li>
+              <li><Link href="/vizyon-misyon">{t('footerLinkMission')}</Link></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>{t('footerTitleProj')}</h4>
             <ul>
-              <li><a href="/#catalog">{t('menuCatalog')}</a></li>
-              <li><a href="/#gallery">{t('menuGallery')}</a></li>
-              <li><a href="/#catalog">{t('footerCatalog')}</a></li>
+              <li><Link href="/#catalog">{t('menuCatalog')}</Link></li>
+              <li><Link href="/#gallery">{t('menuGallery')}</Link></li>
+              <li><Link href="/#catalog">{t('footerCatalog')}</Link></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>{t('footerTitleLegal')}</h4>
             <ul>
-              <li><a href="/kvkk">{t('footerLinkKvkk')}</a></li>
-              <li><a href="/cerez-politikasi">{t('footerLinkCookies')}</a></li>
-              <li><a href="/kullanim-kosullari">{t('footerLinkTerms')}</a></li>
+              <li><Link href="/kvkk">{t('footerLinkKvkk')}</Link></li>
+              <li><Link href="/cerez-politikasi">{t('footerLinkCookies')}</Link></li>
+              <li><Link href="/kullanim-kosullari">{t('footerLinkTerms')}</Link></li>
             </ul>
           </div>
         </div>

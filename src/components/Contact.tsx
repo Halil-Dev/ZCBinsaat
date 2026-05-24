@@ -49,7 +49,7 @@ export default function Contact() {
       } else {
         showToast(t('formErrorTitle'), result.error || t('formErrorMsg'), true);
       }
-    } catch (error) {
+    } catch {
       showToast(t('formErrorTitle'), t('formErrorMsg'), true);
     } finally {
       setSending(false);
