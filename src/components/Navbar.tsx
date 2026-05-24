@@ -5,7 +5,20 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, SupportedLanguages } from '../data';
 
-export default function Navbar() {
+interface NavbarProps {
+  settings?: {
+    phone?: string;
+    phoneRaw?: string;
+    email?: string;
+    address?: string;
+    instagram?: string;
+    facebook?: string;
+    linkedin?: string;
+    youtube?: string;
+  } | null;
+}
+
+export default function Navbar({ settings }: NavbarProps) {
   const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -56,6 +69,14 @@ export default function Navbar() {
     setMenuOpen(false);
     document.body.classList.remove('menu-open');
   };
+
+  const phone = settings?.phone || siteData.contactInfo.phone;
+  const email = settings?.email || siteData.contactInfo.email;
+  const address = settings?.address || siteData.contactInfo.address;
+  const instagram = settings?.instagram || siteData.contactInfo.socials.instagram;
+  const facebook = settings?.facebook || siteData.contactInfo.socials.facebook;
+  const linkedin = settings?.linkedin || siteData.contactInfo.socials.linkedin;
+  const youtube = settings?.youtube || siteData.contactInfo.socials.youtube;
 
   return (
     <>
@@ -147,26 +168,26 @@ export default function Navbar() {
               <svg style={{ display: 'inline', marginRight: '8px' }} width="16" height="16" fill="var(--color-accent)" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.654 1.328a.678.678 0 0 0-.01-.063L3.5 1.7a2.5 2.5 0 0 0-4.9-.1v11.6a2.5 2.5 0 0 0 4.9.1l.144-.435a.678.678 0 0 0-.01-.063zM1.8 0H15a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1.8a1.8 1.8 0 0 1 0-3.6h.4a.8.8 0 0 0 0-1.6h-.4a1.8 1.8 0 0 1 0-3.6h.4a.8.8 0 0 0 0-1.6h-.4a1.8 1.8 0 0 1 0-3.6z"/>
               </svg>
-              {siteData.contactInfo.phone}
+              {phone}
             </p>
             <p>
               <svg style={{ display: 'inline', marginRight: '8px' }} width="16" height="16" fill="var(--color-accent)" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
               </svg>
-              {siteData.contactInfo.email}
+              {email}
             </p>
             <p>
               <svg style={{ display: 'inline', marginRight: '8px', flexShrink: 0 }} width="16" height="16" fill="var(--color-accent)" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
               </svg>
-              <span>{siteData.contactInfo.address}</span>
+              <span>{address}</span>
             </p>
 
             <div className="menu-socials">
-              <a href={siteData.contactInfo.socials.instagram} target="_blank" rel="noopener noreferrer">IG</a>
-              <a href={siteData.contactInfo.socials.facebook} target="_blank" rel="noopener noreferrer">FB</a>
-              <a href={siteData.contactInfo.socials.linkedin} target="_blank" rel="noopener noreferrer">LN</a>
-              <a href={siteData.contactInfo.socials.youtube} target="_blank" rel="noopener noreferrer">YT</a>
+              <a href={instagram} target="_blank" rel="noopener noreferrer">IG</a>
+              <a href={facebook} target="_blank" rel="noopener noreferrer">FB</a>
+              <a href={linkedin} target="_blank" rel="noopener noreferrer">LN</a>
+              <a href={youtube} target="_blank" rel="noopener noreferrer">YT</a>
             </div>
           </div>
         </div>

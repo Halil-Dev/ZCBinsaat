@@ -54,21 +54,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { client } from "@/sanity/lib/client";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let settings = null;
+  try {
+    settings = await client.fetch(`*[_type == "settings"][0]`);
+  } catch (err) {
+    console.error("Failed to fetch settings from Sanity:", err);
+  }
+
   return (
     <html lang="tr" className="scroll-smooth">
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         <LanguageProvider>
           <ToastProvider>
-            <Navbar />
+            <Navbar settings={settings} />
             <main id="main-content" className="flex-grow"> 
               {children}
             </main>
-            <Footer />
+            <Footer settings={settings} />
           </ToastProvider>
         </LanguageProvider>
       </body>

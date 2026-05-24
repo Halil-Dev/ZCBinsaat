@@ -1,33 +1,64 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { siteData, LanguageDictionary } from '../data';
+import { urlFor } from '../sanity/lib/client';
 
 type Category = 'all' | 'exterior' | 'interior' | 'social';
 
-export default function Gallery() {
+interface GalleryProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  items?: any[];
+}
+
+export default function Gallery({ items }: GalleryProps) {
   const { language, t } = useLanguage();
   const [filter, setFilter] = useState<Category>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // Map Sanity gallery items or fall back to static data
+  const activeItems = useMemo(() => {
+    return (items && items.length > 0) ? items.map((item, idx) => {
+      let imageUrl = '';
+      try {
+        imageUrl = item.image ? urlFor(item.image).url() : '/assets/hero_1.png';
+      } catch {
+        imageUrl = '/assets/hero_1.png';
+      }
+
+      return {
+        image: imageUrl,
+        category: item.category || 'exterior',
+        originalIndex: idx,
+        translations: {
+          TR: { title: item.titleTR || '', label: item.category === 'interior' ? 'İç Mekan' : item.category === 'social' ? 'Sosyal Alanlar' : 'Dış Mimari' },
+          EN: { title: item.titleEN || '', label: item.category === 'interior' ? 'Interior' : item.category === 'social' ? 'Social Areas' : 'Exterior' },
+          RU: { title: item.titleRU || '', label: item.category === 'interior' ? 'Интерьер' : item.category === 'social' ? 'Общественные зоны' : 'Экстерьер' }
+        }
+      };
+    }) : siteData.galleryItems.map((item, idx) => ({
+      ...item,
+      originalIndex: idx
+    }));
+  }, [items]);
+
   // Filter gallery items
-  const filteredItems = siteData.galleryItems.map((item, idx) => ({ ...item, originalIndex: idx }))
-    .filter(item => filter === 'all' || item.category === filter);
+  const filteredItems = activeItems.filter(item => filter === 'all' || item.category === filter);
 
   const handlePrev = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => 
-      prev === 0 ? siteData.galleryItems.length - 1 : prev! - 1
+      prev === 0 ? activeItems.length - 1 : prev! - 1
     );
-  }, [lightboxIndex]);
+  }, [lightboxIndex, activeItems.length]);
 
   const handleNext = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => 
-      (prev! + 1) % siteData.galleryItems.length
+      (prev! + 1) % activeItems.length
     );
-  }, [lightboxIndex]);
+  }, [lightboxIndex, activeItems.length]);
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -47,7 +78,7 @@ export default function Gallery() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, handleNext, handlePrev]);
 
-  const activeLightboxItem = lightboxIndex !== null ? siteData.galleryItems[lightboxIndex] : null;
+  const activeLightboxItem = lightboxIndex !== null ? activeItems[lightboxIndex] : null;
 
   return (
     <section id="gallery" className="sec-padding">
@@ -253,7 +284,7 @@ export default function Gallery() {
                 {activeLightboxItem.translations[language].title}
               </h3>
               <div className="lightbox-counter" style={{ fontSize: '0.85rem', color: '#a5a9b4', marginTop: '1rem', fontFamily: 'var(--font-heading)' }}>
-                {String(lightboxIndex + 1).padStart(2, '0')} / {String(siteData.galleryItems.length).padStart(2, '0')}
+                {String(lightboxIndex + 1).padStart(2, '0')} / {String(activeItems.length).padStart(2, '0')}
               </div>
             </div>
           </div>

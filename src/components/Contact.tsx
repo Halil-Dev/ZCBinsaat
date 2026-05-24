@@ -7,9 +7,25 @@ import { siteData } from '../data';
 
 import { submitContactForm } from '../app/actions';
 
-export default function Contact() {
+interface ContactProps {
+  settings?: {
+    phone?: string;
+    phoneRaw?: string;
+    email?: string;
+    address?: string;
+    googleMapsIframe?: string;
+  } | null;
+}
+
+export default function Contact({ settings }: ContactProps) {
   const { t } = useLanguage();
   const { showToast } = useToast();
+
+  const phone = settings?.phone || siteData.contactInfo.phone;
+  const phoneRaw = settings?.phoneRaw || siteData.contactInfo.phoneRaw;
+  const email = settings?.email || siteData.contactInfo.email;
+  const address = settings?.address || siteData.contactInfo.address;
+  const googleMapsIframe = settings?.googleMapsIframe || siteData.contactInfo.googleMapsIframe;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -82,7 +98,7 @@ export default function Contact() {
                     {t('contactLabelAddressTitle')}
                   </h4>
                   <p style={{ color: 'var(--color-white)', fontWeight: '600', margin: 0 }}>
-                    {siteData.contactInfo.address}
+                    {address}
                   </p>
                 </div>
               </div>
@@ -97,8 +113,8 @@ export default function Contact() {
                   <h4 style={{ fontSize: '0.85rem', color: '#a5a9b4', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.35rem' }}>
                     {t('contactLabelPhoneTitle')}
                   </h4>
-                  <a href={`tel:${siteData.contactInfo.phoneRaw}`} style={{ color: 'var(--color-white)', fontWeight: '700', fontSize: '1.15rem' }}>
-                    {siteData.contactInfo.phone}
+                  <a href={`tel:${phoneRaw}`} style={{ color: 'var(--color-white)', fontWeight: '700', fontSize: '1.15rem' }}>
+                    {phone}
                   </a>
                 </div>
               </div>
@@ -113,8 +129,8 @@ export default function Contact() {
                   <h4 style={{ fontSize: '0.85rem', color: '#a5a9b4', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.35rem' }}>
                     {t('contactLabelEmailTitle')}
                   </h4>
-                  <a href={`mailto:${siteData.contactInfo.email}`} style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    {siteData.contactInfo.email}
+                  <a href={`mailto:${email}`} style={{ color: 'var(--color-white)', fontWeight: '600' }}>
+                    {email}
                   </a>
                 </div>
               </div>
@@ -124,7 +140,7 @@ export default function Contact() {
             <div className="map-container">
               <div className="styled-map-placeholder" style={{ position: 'relative', overflow: 'hidden', height: '240px' }}>
                 <iframe
-                  src={siteData.contactInfo.googleMapsIframe}
+                  src={googleMapsIframe}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

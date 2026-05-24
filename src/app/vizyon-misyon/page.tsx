@@ -1,10 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { client } from '../../sanity/lib/client';
+
+interface ValueItem {
+  titleTR?: string;
+  titleEN?: string;
+  titleRU?: string;
+  descTR?: string;
+  descEN?: string;
+  descRU?: string;
+}
+
+interface MappedValue {
+  title: string;
+  desc: string;
+}
 
 export default function VizyonMisyonPage() {
   const { language } = useLanguage();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [pageData, setPageData] = useState<any>(null);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "visionMission"][0]`)
+      .then(data => setPageData(data))
+      .catch(err => console.error("Failed to fetch vision/mission page data from Sanity:", err));
+  }, []);
 
   const content = {
     TR: {
@@ -45,7 +68,7 @@ export default function VizyonMisyonPage() {
       valuesTitle: "Наши Ключевые Ценности",
       values: [
         { title: "Инженерная Сила", desc: "Мы применяем высочайшую инженерную дисциплину на каждом этапе, от анализа грунта до марки стали." },
-        { title: "Доверие и Долговечность", desc: "Мы строим наши жилые пространства на прочном фундаменте, чтобы в них можно было безопасно жить поколениями." },
+        { title: "Доверие и Долговечность", desc: "Мы строимо наши жилые пространства на прочном фундаменте, чтобы в них можно было безопасно жить поколениями." },
         { title: "Эстетика и Роскошь", desc: "Мы сочетаем современные архитектурные тенденции с функциональными деталями роскоши." }
       ]
     }
@@ -53,41 +76,59 @@ export default function VizyonMisyonPage() {
 
   const active = content[language] || content.TR;
 
+  // Resolve values dynamically from Sanity if available, otherwise fall back to static
+  const tag = pageData?.[`tag${language}`] || pageData?.tagTR || active.tag;
+  const title = pageData?.[`title${language}`] || pageData?.titleTR || active.title;
+  
+  const visionTitle = pageData?.[`visionTitle${language}`] || pageData?.visionTitleTR || active.visionTitle;
+  const visionText = pageData?.[`visionText${language}`] || pageData?.visionTextTR || active.visionText;
+
+  const missionTitle = pageData?.[`missionTitle${language}`] || pageData?.missionTitleTR || active.missionTitle;
+  const missionText = pageData?.[`missionText${language}`] || pageData?.missionTextTR || active.missionText;
+
+  const valuesTitle = pageData?.[`valuesTitle${language}`] || pageData?.valuesTitleTR || active.valuesTitle;
+
+  // Process the valuesList array or use fallback values
+  const values: MappedValue[] = pageData?.valuesList?.map((item: ValueItem) => ({
+    title: item[`title${language}`] || item.titleTR || '',
+    desc: item[`desc${language}`] || item.descTR || ''
+  })) || active.values;
+
   return (
     <section className="sec-padding bg-dark text-white" style={{ minHeight: '85vh', paddingTop: '10rem' }}>
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <span className="section-tag" style={{ color: 'var(--color-accent)' }}>{active.tag}</span>
+        <span className="section-tag" style={{ color: 'var(--color-accent)' }}>{tag}</span>
         <h1 className="section-title text-white" style={{ fontSize: '3rem', marginTop: '1rem', marginBottom: '3.5rem' }}>
-          {active.title}
+          {title}
         </h1>
 
         {/* Vision */}
         <div style={{ marginBottom: '3.5rem' }}>
           <h2 style={{ fontSize: '1.75rem', color: 'var(--color-white)', marginBottom: '1rem', fontWeight: '700' }}>
-            {active.visionTitle}
+            {visionTitle}
           </h2>
           <p style={{ lineHeight: '1.8', fontSize: '1.1rem', color: '#a5a9b4' }}>
-            {active.visionText}
+            {visionText}
           </p>
         </div>
 
         {/* Mission */}
         <div style={{ marginBottom: '4rem' }}>
           <h2 style={{ fontSize: '1.75rem', color: 'var(--color-white)', marginBottom: '1rem', fontWeight: '700' }}>
-            {active.missionTitle}
+            {missionTitle}
           </h2>
           <p style={{ lineHeight: '1.8', fontSize: '1.1rem', color: '#a5a9b4' }}>
-            {active.missionText}
+            {missionText}
           </p>
         </div>
 
         {/* Core Values */}
         <div>
           <h2 style={{ fontSize: '1.75rem', color: 'var(--color-white)', marginBottom: '2rem', fontWeight: '700' }}>
-            {active.valuesTitle}
+            {valuesTitle}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {active.values.map((val, idx) => (
+            {values.map((val: MappedValue, idx: number) => (
               <div key={idx} style={{ padding: '1.5rem', backgroundColor: '#383a45', borderRadius: '4px', borderLeft: '4px solid var(--color-accent)' }}>
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--color-white)', marginBottom: '0.5rem', fontWeight: '600' }}>
                   {val.title}

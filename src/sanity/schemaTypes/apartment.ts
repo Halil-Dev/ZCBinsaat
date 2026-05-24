@@ -99,5 +99,17 @@ export default defineType({
       title: 'Banyo Sayısı (RU)',
       type: 'string',
     }),
+    defineField({
+      name: 'status',
+      title: 'Proje Durumu',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Devam Eden (Satılık)', value: 'ongoing' },
+          { title: 'Biten (Satılan)', value: 'completed' }
+        ]
+      },
+      initialValue: 'ongoing'
+    }),
   ],
 })

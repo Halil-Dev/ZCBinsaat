@@ -28,6 +28,10 @@ export interface LanguageDictionary {
   catalogTag: string;
   catalogTitle: string;
   catalogSubtitle: string;
+  catalogTabOngoing: string;
+  catalogTabCompleted: string;
+  catalogLabelSelling: string;
+  catalogLabelSold: string;
   catalogTotalLabel: string;
   catalogTotalSuffix: string;
   catalogSummaryText: string;
@@ -159,7 +163,7 @@ export const siteData: SiteData = {
             menuBtn: "MENÜ",
             menuHome: "Anasayfa",
             menuAbout: "Hakkımızda",
-            menuCatalog: "Daire Seçenekleri",
+            menuCatalog: "Projelerimiz",
             menuGallery: "Galeri",
             menuContact: "Bize Ulaşın",
             virtualTour: "Sanal Tur",
@@ -181,9 +185,13 @@ export const siteData: SiteData = {
             aboutOverlayText: "Deprem yönetmeliğine tam uyumlu, kaya zemin analizleri yapılmış sağlam temeller.",
 
             // Catalog Section
-            catalogTag: "PROJEMİZ",
+            catalogTag: "PROJELERİMİZ",
             catalogTitle: "Satılık Lüks Daireler",
             catalogSubtitle: "Toplam 26 adet bağımsız bölümden oluşan, her ihtiyaca uygun özel planlanmış daire tipleri.",
+            catalogTabOngoing: "Devam Eden",
+            catalogTabCompleted: "Bitenler",
+            catalogLabelSelling: "Satılık Daireler",
+            catalogLabelSold: "Satılanlar",
             catalogTotalLabel: "TOPLAM",
             catalogTotalSuffix: "Eşsiz Daire",
             catalogSummaryText: "Projemiz modern mimari çizgileri, geniş peyzaj alanları, açık havuzu, otoparkı ve çocuk oyun alanları ile konforlu bir hayat sunuyor.",
@@ -245,7 +253,7 @@ export const siteData: SiteData = {
             menuBtn: "MENU",
             menuHome: "Home",
             menuAbout: "About Us",
-            menuCatalog: "Apartment Options",
+            menuCatalog: "Our Projects",
             menuGallery: "Gallery",
             menuContact: "Contact Us",
             virtualTour: "Virtual Tour",
@@ -267,9 +275,13 @@ export const siteData: SiteData = {
             aboutOverlayText: "Fully compliant with earthquake regulations, solid foundations with rock ground analysis.",
 
             // Catalog Section
-            catalogTag: "OUR PROJECT",
+            catalogTag: "OUR PROJECTS",
             catalogTitle: "Luxury Apartments for Sale",
             catalogSubtitle: "A total of 26 independent sections, specially planned apartment types for every need.",
+            catalogTabOngoing: "In Progress",
+            catalogTabCompleted: "Completed",
+            catalogLabelSelling: "Apartments for Sale",
+            catalogLabelSold: "Sold",
             catalogTotalLabel: "TOTAL",
             catalogTotalSuffix: "Unique Units",
             catalogSummaryText: "Our project offers a comfortable life with its modern architectural lines, large landscaped areas, open pool, parking lot, and children's playgrounds.",
@@ -331,7 +343,7 @@ export const siteData: SiteData = {
             menuBtn: "МЕНЮ",
             menuHome: "Главная",
             menuAbout: "О нас",
-            menuCatalog: "Варианты Квартир",
+            menuCatalog: "Наши Проекты",
             menuGallery: "Галерея",
             menuContact: "Контакты",
             virtualTour: "3D Тур",
@@ -353,9 +365,13 @@ export const siteData: SiteData = {
             aboutOverlayText: "Полное соответствие сейсмическим нормам, прочный фундамент на основе анализа скального грунта.",
 
             // Catalog Section
-            catalogTag: "НАШ ПРОЕКТ",
+            catalogTag: "НАШИ ПРОЕКТЫ",
             catalogTitle: "Элитные Квартиры на Продажу",
             catalogSubtitle: "В общей сложности 26 независимых секций, специально спланированные типы квартир для любых нужд.",
+            catalogTabOngoing: "Текущие",
+            catalogTabCompleted: "Завершенные",
+            catalogLabelSelling: "Квартиры в продаже",
+            catalogLabelSold: "Проданные",
             catalogTotalLabel: "ВСЕГО",
             catalogTotalSuffix: "Уникальных Квартир",
             catalogSummaryText: "Наш проект предлагает комфортную жизнь благодаря современным архитектурным линиям, просторным ландшафтным зонам, открытому бассейну, парковке и детским площадкам.",
