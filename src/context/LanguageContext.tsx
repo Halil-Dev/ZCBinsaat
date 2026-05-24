@@ -14,14 +14,14 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<SupportedLanguages>('TR');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const savedLang = localStorage.getItem('zcb_lang') as SupportedLanguages;
     if (savedLang && siteData.languages.includes(savedLang) && savedLang !== 'TR') {
-      setLanguageState(savedLang);
+      setTimeout(() => {
+        setLanguageState(savedLang);
+      }, 0);
     }
-    setMounted(true);
   }, []);
 
   const setLanguage = (lang: SupportedLanguages) => {

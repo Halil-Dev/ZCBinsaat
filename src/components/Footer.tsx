@@ -56,6 +56,7 @@ export default function Footer({ settings }: FooterProps) {
               <li><Link href="/kvkk">{t('footerLinkKvkk')}</Link></li>
               <li><Link href="/cerez-politikasi">{t('footerLinkCookies')}</Link></li>
               <li><Link href="/kullanim-kosullari">{t('footerLinkTerms')}</Link></li>
+              <li><Link href="/zcb-admin-panel">Admin</Link></li>
             </ul>
           </div>
         </div>
