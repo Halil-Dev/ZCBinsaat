@@ -13,22 +13,15 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<SupportedLanguages>(() => {
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('zcb_lang') as SupportedLanguages;
-      if (savedLang && siteData.languages.includes(savedLang)) {
-        return savedLang;
-      }
-    }
-    return 'TR';
-  });
+  const [language, setLanguageState] = useState<SupportedLanguages>('TR');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 0);
-    return () => clearTimeout(timer);
+    const savedLang = localStorage.getItem('zcb_lang') as SupportedLanguages;
+    if (savedLang && siteData.languages.includes(savedLang) && savedLang !== 'TR') {
+      setLanguageState(savedLang);
+    }
+    setMounted(true);
   }, []);
 
   const setLanguage = (lang: SupportedLanguages) => {
@@ -55,7 +48,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, th }}>
-      {mounted ? children : null}
+      {children}
     </LanguageContext.Provider>
   );
 };
